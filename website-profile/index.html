@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Set lang + restore chosen language before React hydrates -->
+    <script>
+      (function () {
+        try {
+          var key = "ih-language";
+          var stored = window.localStorage.getItem(key);
+          var lang =
+            stored || (navigator.language && navigator.language.toLowerCase().startsWith("id") ? "id" : "en");
+          document.documentElement.lang = lang;
+        } catch (e) {
+          // localStorage unavailable — keep default
+        }
+      })();
+    </script>
+
+    <!-- Primary SEO (English default; React updates for language) -->
+    <title>Irvan Hidayat — Quality Assurance Engineer</title>
+    <meta
+      name="description"
+      content="Professional portfolio of Irvan Hidayat, a Quality Assurance Engineer with 3+ years of experience in functional, regression, UAT, and API testing."
+    />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Irvan Hidayat — Quality Assurance Engineer" />
+    <meta
+      property="og:description"
+      content="Professional portfolio of Irvan Hidayat, a Quality Assurance Engineer with 3+ years of experience in functional, regression, UAT, and API testing."
+    />
+    <meta property="og:image" content="/og.png" />
+    <meta property="og:image:alt" content="Irvan Hidayat — Quality Assurance Engineer" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Irvan Hidayat — Quality Assurance Engineer" />
+    <meta
+      name="twitter:description"
+      content="Professional portfolio of Irvan Hidayat, a Quality Assurance Engineer with 3+ years of experience in functional, regression, UAT, and API testing."
+    />
+    <meta name="twitter:image" content="/og.png" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
