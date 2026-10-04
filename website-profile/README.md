@@ -2,7 +2,7 @@
 
 A clean, bilingual (English / Indonesian), one-page professional portfolio built as a static Vite site.
 
-**Live site:** (add your Vercel URL here after deploying)
+**Live site:** https://profile-irvanhidayat.vercel.app/
 
 ---
 
