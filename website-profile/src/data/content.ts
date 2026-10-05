@@ -327,15 +327,15 @@ const en = {
         key: "testCase",
         title: "Test Case",
         description:
-          "Design test cases based on the requirements, covering functional, regression, and UAT scenarios.",
-        tags: ["Test case design", "UAT scenarios"],
+          "Design test cases based on the requirements, covering functional, regression, smoke, end-to-end, and UAT scenarios.",
+        tags: ["Test case design", "Smoke · E2E", "UAT scenarios"],
       },
       {
         key: "execute",
         title: "Execute",
         description:
-          "Run functional, regression, and UAT cycles, plus API testing with Postman and Apidog when new features or endpoints are released.",
-        tags: ["Functional & regression", "Postman · Apidog"],
+          "Run functional, regression, smoke, end-to-end, and UAT cycles, plus API testing with Postman and Apidog when new features or endpoints are released.",
+        tags: ["Functional & regression", "Smoke · E2E", "Postman · Apidog"],
       },
       {
         key: "bugReport",
@@ -355,7 +355,7 @@ const en = {
         key: "release",
         title: "Release",
         description: "Verify the application meets specifications before it is released to users.",
-        tags: ["UAT", "Verification"],
+        tags: ["UAT", "Smoke verification", "Verification"],
       },
     ],
     controls: {
@@ -650,15 +650,15 @@ const id: Content = {
         key: "testCase",
         title: "Test Case",
         description:
-          "Merancang test case berdasarkan kebutuhan, mencakup skenario functional, regression, dan UAT.",
-        tags: ["Desain test case", "Skenario UAT"],
+          "Merancang test case berdasarkan kebutuhan, mencakup skenario functional, regression, smoke, end-to-end, dan UAT.",
+        tags: ["Desain test case", "Smoke · E2E", "Skenario UAT"],
       },
       {
         key: "execute",
         title: "Eksekusi",
         description:
-          "Menjalankan pengujian functional, regression, dan UAT, ditambah API testing dengan Postman dan Apidog saat fitur atau endpoint baru dirilis.",
-        tags: ["Functional & regression", "Postman · Apidog"],
+          "Menjalankan pengujian functional, regression, smoke, end-to-end, dan UAT, ditambah API testing dengan Postman dan Apidog saat fitur atau endpoint baru dirilis.",
+        tags: ["Functional & regression", "Smoke · E2E", "Postman · Apidog"],
       },
       {
         key: "bugReport",
@@ -679,7 +679,7 @@ const id: Content = {
         title: "Rilis",
         description:
           "Memverifikasi bahwa aplikasi memenuhi spesifikasi sebelum dirilis ke pengguna.",
-        tags: ["UAT", "Verifikasi"],
+        tags: ["UAT", "Verifikasi smoke", "Verifikasi"],
       },
     ],
     controls: {
