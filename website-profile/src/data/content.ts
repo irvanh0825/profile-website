@@ -194,12 +194,20 @@ export interface ExperienceText {
   company: string;
   role: string;
   roleType: RoleType;
+  /** Optional badge label override (e.g., "Junior Web Developer" instead of "Developer"). */
+  badgeLabel?: string;
+  /** Additional role badges shown next to the main role badge. */
+  extraBadges?: string[];
   bullets: string[];
 }
 
 export interface ProjectText {
   role: string;
   roleType: RoleType;
+  /** Optional badge label override (e.g., "Junior Web Developer" instead of "Developer"). */
+  badgeLabel?: string;
+  /** Additional role badges shown next to the main role badge. */
+  extraBadges?: string[];
   description: string;
   tags: string[];
 }
@@ -394,6 +402,7 @@ const en = {
         company: "PT Neritama Karya Lestari",
         role: "System Analyst / Quality Assurance (Freelance)",
         roleType: "analyst",
+        extraBadges: ["QA"],
         bullets: [
           "Analyzed business requirements, designed system architecture, and prepared technical documentation for ERP modules: Purchasing, Inventory, Production Planning, and Sales & Distribution.",
           "Coordinated with the development team to ensure integration between modules and implementation aligned with operational needs.",
@@ -403,6 +412,7 @@ const en = {
         company: "Jogja Airport Resto",
         role: "System Analyst / Quality Assurance (Freelance)",
         roleType: "analyst",
+        extraBadges: ["QA"],
         bullets: [
           "Analyzed requirements, designed system workflows, and prepared technical documentation for a restaurant POS application, coordinating with developers.",
         ],
@@ -447,6 +457,7 @@ const en = {
       erpNeritama: {
         role: "System Analyst / Quality Assurance",
         roleType: "analyst",
+        extraBadges: ["QA"],
         description:
           "ERP suite including E-Procurement, E-Accounting (automatically receives journal entries from other systems), Nicole's Chocolaterie Production, and Fashion Outlet POS.",
         tags: ["ERP", "E-Procurement", "Production", "POS"],
@@ -454,12 +465,14 @@ const en = {
       jogjaAirportPos: {
         role: "System Analyst / Quality Assurance",
         roleType: "analyst",
+        extraBadges: ["QA"],
         description: "Web-based POS for ordering, payment processing, and restaurant operations.",
         tags: ["POS", "Restaurant operations"],
       },
       dpmPtspWeb: {
         role: "Junior Web Developer",
         roleType: "developer",
+        badgeLabel: "Junior Web Developer",
         description:
           "Web-based application for submitting and tracking SIUP and TDP licensing, with digital permits.",
         tags: ["Web app", "Licensing", "SIUP", "TDP"],
@@ -713,6 +726,7 @@ const id: Content = {
         company: "PT Neritama Karya Lestari",
         role: "System Analyst / Quality Assurance (Freelance)",
         roleType: "analyst",
+        extraBadges: ["QA"],
         bullets: [
           "Menganalisis kebutuhan bisnis, merancang arsitektur sistem, dan menyiapkan dokumentasi teknis untuk modul ERP: Purchasing, Inventory, Production Planning, dan Sales & Distribution.",
           "Berkoordinasi dengan tim pengembang untuk memastikan integrasi antarmodul dan implementasi yang selaras dengan kebutuhan operasional.",
@@ -722,6 +736,7 @@ const id: Content = {
         company: "Jogja Airport Resto",
         role: "System Analyst / Quality Assurance (Freelance)",
         roleType: "analyst",
+        extraBadges: ["QA"],
         bullets: [
           "Menganalisis kebutuhan, merancang alur kerja sistem, dan menyiapkan dokumentasi teknis untuk aplikasi POS restoran, serta berkoordinasi dengan developer.",
         ],
@@ -766,6 +781,7 @@ const id: Content = {
       erpNeritama: {
         role: "System Analyst / Quality Assurance",
         roleType: "analyst",
+        extraBadges: ["QA"],
         description:
           "Paket ERP yang mencakup E-Procurement, E-Accounting (menerima entri jurnal secara otomatis dari sistem lain), Nicole's Chocolaterie Production, dan Fashion Outlet POS.",
         tags: ["ERP", "E-Procurement", "Production", "POS"],
@@ -773,12 +789,14 @@ const id: Content = {
       jogjaAirportPos: {
         role: "System Analyst / Quality Assurance",
         roleType: "analyst",
+        extraBadges: ["QA"],
         description: "POS berbasis web untuk pemesanan, proses pembayaran, dan operasional restoran.",
         tags: ["POS", "Operasional restoran"],
       },
       dpmPtspWeb: {
         role: "Junior Web Developer",
         roleType: "developer",
+        badgeLabel: "Junior Web Developer",
         description:
           "Aplikasi berbasis web untuk pengajuan dan pelacakan perizinan SIUP dan TDP, dilengkapi surat izin digital.",
         tags: ["Web app", "Perizinan", "SIUP", "TDP"],
@@ -849,6 +867,8 @@ export interface ExperienceEntry {
   company: string;
   role: string;
   roleType: RoleType;
+  badgeLabel?: string;
+  extraBadges?: string[];
   location: string;
   period: DateRange;
   /** Formatted, e.g. "Mar 2022 – Present" / "Mar 2022 – Sekarang". */
@@ -857,7 +877,7 @@ export interface ExperienceEntry {
 }
 
 export function getExperience(language: Language): ExperienceEntry[] {
-  const items = content[language].experience.items;
+  const items = content[language].experience.items as Record<ExperienceKey, ExperienceText>;
   return experienceMeta.map((meta) => {
     const text = items[meta.key];
     return {
@@ -865,6 +885,8 @@ export function getExperience(language: Language): ExperienceEntry[] {
       company: text.company,
       role: text.role,
       roleType: text.roleType,
+      badgeLabel: text.badgeLabel,
+      extraBadges: text.extraBadges,
       location: meta.location,
       period: meta.period,
       periodLabel: formatPeriod(meta.period, language),
@@ -878,6 +900,8 @@ export interface ProjectEntry {
   name: string;
   role: string;
   roleType: RoleType;
+  badgeLabel?: string;
+  extraBadges?: string[];
   description: string;
   tags: string[];
   period: DateRange;
@@ -885,7 +909,7 @@ export interface ProjectEntry {
 }
 
 export function getProjects(language: Language): ProjectEntry[] {
-  const items = content[language].projects.items;
+  const items = content[language].projects.items as Record<ProjectKey, ProjectText>;
   return projectMeta.map((meta) => {
     const text = items[meta.key];
     return {
@@ -893,6 +917,8 @@ export function getProjects(language: Language): ProjectEntry[] {
       name: meta.name,
       role: text.role,
       roleType: text.roleType,
+      badgeLabel: text.badgeLabel,
+      extraBadges: text.extraBadges,
       description: text.description,
       tags: text.tags,
       period: meta.period,

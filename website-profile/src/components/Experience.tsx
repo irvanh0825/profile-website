@@ -17,6 +17,11 @@ const ROLE_VARIANT: Record<RoleType, BadgeVariant> = {
   developer: "default",
 };
 
+function extraBadgeVariant(label: string): BadgeVariant {
+  if (label === "QA") return "primary";
+  return "default";
+}
+
 interface TimelineItemProps {
   item: ExperienceEntry;
   index: number;
@@ -52,8 +57,13 @@ function TimelineItem({ item, index, expanded, onToggle, labels }: TimelineItemP
           <div>
             <div className="flex flex-wrap items-center gap-2">
               <Badge variant={ROLE_VARIANT[item.roleType]}>
-                {labels.typeLabels[item.roleType]}
+                {item.badgeLabel ?? labels.typeLabels[item.roleType]}
               </Badge>
+              {item.extraBadges?.map((badge) => (
+                <Badge key={badge} variant={extraBadgeVariant(badge)}>
+                  {badge}
+                </Badge>
+              ))}
               {isCurrent ? <Badge variant="primary">{labels.current}</Badge> : null}
             </div>
             <h3 className={`mt-2 font-semibold text-slate-900 ${isFirst ? "text-xl" : "text-lg"}`}>

@@ -18,6 +18,11 @@ const ROLE_VARIANT: Record<RoleType, BadgeVariant> = {
   developer: "default",
 };
 
+function extraBadgeVariant(label: string): BadgeVariant {
+  if (label === "QA") return "primary";
+  return "default";
+}
+
 const ROLE_ORDER: RoleType[] = ["qa", "pm", "analyst", "developer"];
 
 interface ProjectModalProps {
@@ -190,9 +195,13 @@ export function Projects() {
 
                   <div className="mt-2 flex flex-wrap items-center gap-2">
                     <Badge variant={ROLE_VARIANT[project.roleType]}>
-                      {typeLabels[project.roleType]}
+                      {project.badgeLabel ?? typeLabels[project.roleType]}
                     </Badge>
-                    <span className="font-mono text-xs text-slate-500">{project.role}</span>
+                    {project.extraBadges?.map((badge) => (
+                      <Badge key={badge} variant={extraBadgeVariant(badge)}>
+                        {badge}
+                      </Badge>
+                    ))}
                   </div>
 
                   <p className="mt-3 line-clamp-2 text-sm text-slate-600">{project.description}</p>
