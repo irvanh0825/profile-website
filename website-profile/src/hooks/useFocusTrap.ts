@@ -7,7 +7,18 @@ import type { RefObject } from "react";
  * Tab cycles within the container, and focus returns to the previously
  * focused element on unmount.
  */
-export function useFocusTrap(containerRef: RefObject<HTMLElement | null>, active: boolean) {
+interface UseFocusTrapOptions {
+  /** When false, focus is not restored to the previously focused element on deactivate. Default true. */
+  returnFocusOnDeactivate?: boolean;
+}
+
+export function useFocusTrap(
+  containerRef: RefObject<HTMLElement | null>,
+  active: boolean,
+  options: UseFocusTrapOptions = {},
+) {
+  const { returnFocusOnDeactivate = true } = options;
+
   useEffect(() => {
     if (!active || !containerRef.current) {
       return;
@@ -21,7 +32,7 @@ export function useFocusTrap(containerRef: RefObject<HTMLElement | null>, active
 
     const previouslyFocused = document.activeElement as HTMLElement | null;
     const first = getFocusable()[0];
-    first?.focus();
+    first?.focus({ preventScroll: true });
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Tab") {
@@ -46,7 +57,9 @@ export function useFocusTrap(containerRef: RefObject<HTMLElement | null>, active
     document.addEventListener("keydown", onKeyDown);
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      previouslyFocused?.focus();
+      if (returnFocusOnDeactivate) {
+        previouslyFocused?.focus();
+      }
     };
-  }, [active, containerRef]);
+  }, [active, containerRef, returnFocusOnDeactivate]);
 }

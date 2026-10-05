@@ -85,6 +85,15 @@
     }
   }
 
+  /* Hide horizontal scrollbar on mobile bottom nav */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Extremely subtle dotted grid for the hero, fading out at the edges */
   .hero-pattern {
     background-image: radial-gradient(circle, rgb(15 23 42 / 0.05) 1px, transparent 1px);

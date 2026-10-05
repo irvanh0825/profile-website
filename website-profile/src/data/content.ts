@@ -207,7 +207,7 @@ export interface ProjectText {
 const en = {
   intro: {
     header: "irvan.qa / test suite",
-    checks: ["Functional", "Regression", "API", "UAT"],
+    checks: ["Functional", "Regression", "End-to-End", "Smoke", "UAT", "API"],
     passed: "All tests passed",
     skip: "Skip",
     progressAria: "Test progress",
@@ -242,7 +242,14 @@ const en = {
       experienceValue: "3+",
       experienceLabel: "years of QA experience",
       areasTitle: "Testing areas",
-      areas: ["Functional Testing", "Regression Testing", "User Acceptance Testing", "API Testing"],
+      areas: [
+        "Functional Testing",
+        "Regression Testing",
+        "End-to-End Testing",
+        "Smoke Testing",
+        "User Acceptance Testing",
+        "API Testing",
+      ],
       learningLabel: "Currently learning",
       learningValue: "Playwright + TypeScript",
       photoAlt: "Profile photo of Irvan Hidayat",
@@ -385,7 +392,7 @@ const en = {
       },
       neritama: {
         company: "PT Neritama Karya Lestari",
-        role: "System Analyst (Freelance)",
+        role: "System Analyst / Quality Assurance (Freelance)",
         roleType: "analyst",
         bullets: [
           "Analyzed business requirements, designed system architecture, and prepared technical documentation for ERP modules: Purchasing, Inventory, Production Planning, and Sales & Distribution.",
@@ -394,7 +401,7 @@ const en = {
       },
       jogjaAirport: {
         company: "Jogja Airport Resto",
-        role: "System Analyst (Freelance)",
+        role: "System Analyst / Quality Assurance (Freelance)",
         roleType: "analyst",
         bullets: [
           "Analyzed requirements, designed system workflows, and prepared technical documentation for a restaurant POS application, coordinating with developers.",
@@ -438,14 +445,14 @@ const en = {
         tags: ["POS", "Menu management", "Inventory"],
       },
       erpNeritama: {
-        role: "System Analyst",
+        role: "System Analyst / Quality Assurance",
         roleType: "analyst",
         description:
           "ERP suite including E-Procurement, E-Accounting (automatically receives journal entries from other systems), Nicole's Chocolaterie Production, and Fashion Outlet POS.",
         tags: ["ERP", "E-Procurement", "Production", "POS"],
       },
       jogjaAirportPos: {
-        role: "System Analyst",
+        role: "System Analyst / Quality Assurance",
         roleType: "analyst",
         description: "Web-based POS for ordering, payment processing, and restaurant operations.",
         tags: ["POS", "Restaurant operations"],
@@ -483,7 +490,7 @@ const en = {
     eyebrow: "07 // CONTACT",
     title: "Contact",
     headline: "Let's work together",
-    body: "I'm open to QA roles, freelance projects, and discussions about software quality. Reach out by email or connect on LinkedIn.",
+    body: "I'm open to QA roles, freelance projects, and discussions about software quality. Reach out by email.",
     emailMeLabel: "Email me",
     emailLabel: "Email",
     copyLabel: "Copy",
@@ -518,7 +525,7 @@ export type Content = typeof en;
 const id: Content = {
   intro: {
     header: "irvan.qa / test suite",
-    checks: ["Functional", "Regression", "API", "UAT"],
+    checks: ["Functional", "Regression", "End-to-End", "Smoke", "UAT", "API"],
     passed: "Semua pengujian lolos",
     skip: "Lewati",
     progressAria: "Progres pengujian",
@@ -553,7 +560,14 @@ const id: Content = {
       experienceValue: "3+",
       experienceLabel: "tahun pengalaman QA",
       areasTitle: "Area pengujian",
-      areas: ["Functional Testing", "Regression Testing", "User Acceptance Testing", "API Testing"],
+      areas: [
+        "Functional Testing",
+        "Regression Testing",
+        "End-to-End Testing",
+        "Smoke Testing",
+        "User Acceptance Testing",
+        "API Testing",
+      ],
       learningLabel: "Sedang dipelajari",
       learningValue: "Playwright + TypeScript",
       photoAlt: "Foto profil Irvan Hidayat",
@@ -697,7 +711,7 @@ const id: Content = {
       },
       neritama: {
         company: "PT Neritama Karya Lestari",
-        role: "System Analyst (Freelance)",
+        role: "System Analyst / Quality Assurance (Freelance)",
         roleType: "analyst",
         bullets: [
           "Menganalisis kebutuhan bisnis, merancang arsitektur sistem, dan menyiapkan dokumentasi teknis untuk modul ERP: Purchasing, Inventory, Production Planning, dan Sales & Distribution.",
@@ -706,7 +720,7 @@ const id: Content = {
       },
       jogjaAirport: {
         company: "Jogja Airport Resto",
-        role: "System Analyst (Freelance)",
+        role: "System Analyst / Quality Assurance (Freelance)",
         roleType: "analyst",
         bullets: [
           "Menganalisis kebutuhan, merancang alur kerja sistem, dan menyiapkan dokumentasi teknis untuk aplikasi POS restoran, serta berkoordinasi dengan developer.",
@@ -750,14 +764,14 @@ const id: Content = {
         tags: ["POS", "Manajemen menu", "Inventory"],
       },
       erpNeritama: {
-        role: "System Analyst",
+        role: "System Analyst / Quality Assurance",
         roleType: "analyst",
         description:
           "Paket ERP yang mencakup E-Procurement, E-Accounting (menerima entri jurnal secara otomatis dari sistem lain), Nicole's Chocolaterie Production, dan Fashion Outlet POS.",
         tags: ["ERP", "E-Procurement", "Production", "POS"],
       },
       jogjaAirportPos: {
-        role: "System Analyst",
+        role: "System Analyst / Quality Assurance",
         roleType: "analyst",
         description: "POS berbasis web untuk pemesanan, proses pembayaran, dan operasional restoran.",
         tags: ["POS", "Operasional restoran"],
@@ -795,7 +809,7 @@ const id: Content = {
     eyebrow: "07 // KONTAK",
     title: "Kontak",
     headline: "Mari bekerja sama",
-    body: "Saya terbuka untuk peran QA, proyek freelance, dan diskusi tentang kualitas perangkat lunak. Hubungi saya melalui email atau terhubung di LinkedIn.",
+    body: "Saya terbuka untuk peran QA, proyek freelance, dan diskusi tentang kualitas perangkat lunak. Hubungi saya melalui email.",
     emailMeLabel: "Kirim email",
     emailLabel: "Email",
     copyLabel: "Salin",
