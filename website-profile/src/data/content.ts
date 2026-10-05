@@ -51,6 +51,8 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { name: "Functional Testing" },
       { name: "Regression Testing" },
+      { name: "End-to-End Testing" },
+      { name: "Smoke Testing" },
       { name: "User Acceptance Testing (UAT)" },
       { name: "API Testing" },
       { name: "Test Case Design" },
